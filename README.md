@@ -35,14 +35,22 @@ WordPress のバックアップをする設定ファイルです。
 バックアップフォルダ名:バックアップの保管日数:WordPress本体の言語:バックアップの圧縮形式:WordPress本体のフォルダPath
 
 例：
+
 バックアップフォルダ：/home/userid/backup/backup/sample1
+
 バックアップの保管日数：7 （デフォルトは7）
+
 WordPress本体の言語：ja （WordPress Core のアップデートにおいて、どの言語のバージョンにするか選択できます）
+
 バックアップの圧縮形式：tar.gz （デフォルトは tar.gz。その他、 tar.bz2、tar.xz、zip を選択できます）
+
 WordPress本体のフォルダPath：/home/userid/www/sample1
 
+
 上記の例の場合には、下記の設定を wp-backup-targets.dat に追加してください。
+
 複数行ある場合には、複数の WordPress で処理されます。
+
 行に # があると、その行は無視されます（コメントできます）
 
 sample1:7:ja:tar.gz:/home/userid/www/sample1
