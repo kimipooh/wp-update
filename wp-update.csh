@@ -29,9 +29,12 @@ set STATUS_OBJECT_CACHE =  "${WP_CLI} apcu status"
 set WP_EXPORT = "${WP_CLI} db export --default-character-set=utf8mb4"
 setenv LC_ALL ja_JP.UTF-8
 
-
+if ( ! -d "$base_dir" ) then
+  mkdir $base_dir
+  chmod 700 $base_dir
+endif
 if ( ! -d "$logs" ) then
- mkdir $logs
+  mkdir -p $logs
 endif
 
 # Folder Check
@@ -49,14 +52,6 @@ foreach target_db($target_dbs)
 if("$target_db" == "") then
  goto usage
 endif
-
-#if ( $#argv == 1 ) then
-# if( "$argv[1]" != "" ) then
-#	set target_db = "$argv[1]"
-# endif
-#else
-# goto usage
-#endif
 
 ## Pick up targets
 

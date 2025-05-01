@@ -81,6 +81,7 @@ set SERVER_USERID = "userid" （useridを変更）
 あとは、 csh -xf wp-update.csh 
 などで実行し、正しく実行できるか確認してください。
 
-
+＊なお userid で期待しているのは $USER です。
+ただ全ての環境でユーザー名の変数 $USER があるかどうかわからないので、手動設定するようにしてます。
 
 
