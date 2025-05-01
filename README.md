@@ -97,7 +97,9 @@ wp-backup-targets.dat
 wp-update.csh
 7. wp-backup-target.dat を編集して、自分なりの環境になったものに書き換えてください。
 8. wp-update.csh を編集して、自分なりの環境になったものに書き換えてください。
+
 最低限に必要な変更は次の通り
+
 set SERVER_USERID = "userid" （useridを変更）
 
 あとは、 csh -xf wp-update.csh 
