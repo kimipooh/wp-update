@@ -4,7 +4,9 @@ WordPress backup script using WP-CLI commands
 # 注意事項
 
 本ツールは、さくらインターネットのレンタルサーバーで動作検証しています。
+
 ただし、シェルスクリプト等サーバー上に ssh ログインして WordPress を手動で圧縮したり、解凍できるスキルを思っていることを前提としています。
+
 このツールは自由に改変、利用してもらって構いませんが、これを実行することで起こる問題については責任はとりません。
 
 # このツールができること
@@ -13,12 +15,15 @@ WordPress backup script using WP-CLI commands
 
 # ファイルの置き場
 wp-backup-targets.dat
+
 wp-update.csh
 
 wp-update.csh 内の下記で指定されたフォルダ内の bin ディレクトリに置いてください。
+
 set base_dir = "/home/${SERVER_USERID}/backup"
 
 例：set back_dir = /home/userid/backup の場合、下記のディレクトリに入れます。
+
 /home/userid/backup/bin/
 
 # wp-backup-targets.dat の説明
@@ -26,6 +31,7 @@ set base_dir = "/home/${SERVER_USERID}/backup"
 WordPress のバックアップをする設定ファイルです。
 
 本ファイルの形式は下記の形式にします。
+
 バックアップフォルダ名:バックアップの保管日数:WordPress本体の言語:バックアップの圧縮形式:WordPress本体のフォルダPath
 
 例：
@@ -45,21 +51,29 @@ sample1:7:ja:tar.gz:/home/userid/www/sample1
 実際に実行する CSH プログラムです。
 
 初期設定を行ったあと、
+
 csh -xf wp-update.csh などで動作させたあとは、OSの cron によって自動化実行するタスク登録しておけばよいでしょう。
 
 バックアップファイルについては、ファイル名に manually がつくと削除対象から外れます。
+
 それ以外については、指定の日時がすぎると削除されるので注意が必要です。
 
 # 初期設定
 
 ## ディレクトリの作成
 ホームディレクトリ：/home/userid
+
 バックアップディレクトリ：/home/userid/backup
+
 WordPress のバックアップディレクトリ：/home/userid/backup/backup
+
 本ツール実行ディレクトリ：/home/userid/backup/bin
+
 WordPress本体ディレクトリ：/home/userid/www
 
+
 と仮定します。
+
 ＊実行ログは、/home/userid/backup/logs/YYYYMMDD.log （年月日）に保存されます。
 
 下記のように、バックアップのためのディレクトリを作成してください。
@@ -79,9 +93,11 @@ wp-update.csh
 set SERVER_USERID = "userid" （useridを変更）
 
 あとは、 csh -xf wp-update.csh 
+
 などで実行し、正しく実行できるか確認してください。
 
 ＊なお userid で期待しているのは $USER です。
+
 ただ全ての環境でユーザー名の変数 $USER があるかどうかわからないので、手動設定するようにしてます。
 
 
