@@ -184,7 +184,7 @@ exit
 usage:
  echo "Please check $target_db".
  echo "Usage:"
- echo ' [backup folder name]:[WordPress language code]:[Compress Type][WordPress folder path]'
+ echo '[backup folder name]:[WordPress language code]:[Compress Type]:[WordPress folder path]'
  echo 'Compress type: "tar.xz", "tar.bz2","tar.gz","zip" (Default: "tar.gz")'
  exit
 
