@@ -124,8 +124,8 @@ else if ("$COMPRESS" == "tar.xz") then
     echo "cd ../; tar -cJf ${backup_dir}/${BACKUP_FILE}  ${WP_NAME}" >> $LOG_FILE
     (cd ../; tar -cJf ${backup_dir}/${BACKUP_FILE}  ${WP_NAME}) >>& $LOG_FILE
 else if ("$COMPRESS" == "zip") then
-    echo "cd ../; zip -ry ${backup_dir}/${BACKUP_FILE}  ${WP_NAME}" >> $LOG_FILE
-    (cd ../; zip -ry ${backup_dir}/${BACKUP_FILE}  ${WP_NAME}) >>& $LOG_FILE
+    echo "cd ../; zip -ryq ${backup_dir}/${BACKUP_FILE}  ${WP_NAME}" >> $LOG_FILE
+    (cd ../; zip -ryq ${backup_dir}/${BACKUP_FILE}  ${WP_NAME}) >>& $LOG_FILE
 else
     echo "Invalid compress type."
     goto usage
